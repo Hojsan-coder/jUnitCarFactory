@@ -16,7 +16,7 @@ public class CarFactoryTest {
 
     Carfactory carfactory = new Carfactory(vihicleRegistrationNumberGenerator,"Saab");
 
-   Car car = carfactory.createNewCar("Red");
+   Car car = carfactory.createNewCar("Red","900","Bensin",90,4);
 
    assertNotNull(car);
 
@@ -25,6 +25,14 @@ public class CarFactoryTest {
    assertEquals("Saab", car.getBrand());
 
    assertEquals("ABC123",car.getRegNo());
+
+   assertEquals("900",car.getModell());
+
+   assertEquals("Bensin", car.getMotortyp());
+
+   assertEquals(90,car.getMotorStyrka());
+
+   assertEquals(4,car.getAntalPassagerare());
 
     }
 }
