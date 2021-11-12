@@ -6,23 +6,21 @@ public class Car {
 
     String brand;
     String regNo;
-    String modell;
-    String motortyp;
-    int motorStyrka;
-    int antalPassagerare;
+
+    String engineType;
+
+    int enginePower;
+
+    int numberOfPassangers;
 
 
-
-    public Car(String color, String brand, String regNo ,String modell, String motortyp,int motorStyrka, int antalPassagerare) {
+    public Car(String color, String brand, String regNo, String engineType, int enginePower, int numberOfPassangers) {
         this.color = color;
         this.brand = brand;
-        this.regNo= regNo;
-        this.modell = modell;
-        this.motortyp=motortyp;
-        this.motorStyrka=motorStyrka;
-        this.antalPassagerare= antalPassagerare;
-
-
+        this.regNo = regNo;
+        this.engineType = engineType;
+        this.enginePower = enginePower;
+        this.numberOfPassangers = numberOfPassangers;
     }
 
     public String getRegNo() {
@@ -49,37 +47,27 @@ public class Car {
         this.brand = brand;
     }
 
-    public String getModell() {
-        return modell;
+    public String getEngineType() {
+        return engineType;
     }
 
-    public void setModell(String modell) {
-        this.modell = modell;
+    public void setEngineType(String engineType) {
+        this.engineType = engineType;
     }
 
-    public String getMotortyp() {
-        return motortyp;
+    public int getEnginePower() {
+        return enginePower;
     }
 
-    public void setMotortyp(String motortyp) {
-        this.motortyp = motortyp;
+    public void setEnginePower(int enginePower) {
+        this.enginePower = enginePower;
     }
 
-    public int getMotorStyrka() {
-        return motorStyrka;
+    public int getNumberOfPassangers() {
+        return numberOfPassangers;
     }
 
-    public void setMotorStyrka(int motorStyrka) {
-        this.motorStyrka = motorStyrka;
+    public void setNumberOfPassangers(int numberOfPassangers) {
+        this.numberOfPassangers = numberOfPassangers;
     }
-
-    public int getAntalPassagerare() {
-        return antalPassagerare;
-    }
-
-    public void setAntalPassagerare(int antalPassagerare) {
-        this.antalPassagerare = antalPassagerare;
-    }
-
-
 }

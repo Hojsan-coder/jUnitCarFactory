@@ -12,7 +12,7 @@ public class Carfactory {
 
     }
 
-    public Car createNewCar(String color, String modell,String motorTyp,int motorStyrka, int antalpassagerare) {
-        return new Car(color, this.brand, vihicleRegistrationNumberGenerator.getNextRegNo(), modell,motorTyp,motorStyrka,antalpassagerare);
+    public Car createNewCar(String model, String color) {
+        return new Car(color, this.brand, vihicleRegistrationNumberGenerator.getNextRegNo(),"gasoline",90,4);
     }
 }
