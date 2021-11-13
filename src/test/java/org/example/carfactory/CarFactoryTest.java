@@ -1,6 +1,8 @@
 package org.example.carfactory;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
 
@@ -28,22 +30,32 @@ public class CarFactoryTest {
 
 
     }
+    @ParameterizedTest
+    @CsvSource({
+            "900,Gasoline,90,4",
+            "900 Turbo, Gasoline/Turbo,150,4",
+            "93,Gasoline,110,4",
+            "93 aero,Gasoline/Turbo,190,4",
+            "9-7X,Diesel/Turbo,170,6"
 
-    @Test
-    void test_create_car_with_model_sucess() {
+    })
+    void test_create_car_with_model_sucess(String model,String enginetype,int enginePower,int numberOfPassangers) {
 
         VihicleRegistrationNumberGenerator vihicleRegistrationNumberGenerator = new VihicleRegistrationNumberGenerator(List.of("ABC123"));
         Carfactory carfactory = new Carfactory(vihicleRegistrationNumberGenerator,"Saab");
 
-        Car car = carfactory.createNewCar("900","Red");
+        Car car = carfactory.createNewCar(model,"Red");
+
+
+
 
         assertNotNull(car);
 
-        assertEquals("gasoline",car.getEngineType());
+        assertEquals(enginetype,car.getEngineType());
 
-        assertEquals(90, car.getEnginePower());
+        assertEquals(enginePower, car.getEnginePower());
 
-        assertEquals(4,car.getNumberOfPassangers());
+        assertEquals(numberOfPassangers,car.getNumberOfPassangers());
 
 
     }
