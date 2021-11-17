@@ -16,6 +16,7 @@ public class CarFactoryTest {
 
      VihicleRegistrationNumberGenerator vihicleRegistrationNumberGenerator = new VihicleRegistrationNumberGenerator(List.of("ABC123"));
      Carfactory carfactory = new Carfactory(vihicleRegistrationNumberGenerator,"Saab");
+        carfactory.addModel("900","Gasoline",90,4);
 
    Car car = carfactory.createNewCar("900", "Red");
 
@@ -30,32 +31,25 @@ public class CarFactoryTest {
 
 
     }
-    @ParameterizedTest
-    @CsvSource({
-            "900,Gasoline,90,4",
-            "900 Turbo, Gasoline/Turbo,150,4",
-            "93,Gasoline,110,4",
-            "93 aero,Gasoline/Turbo,190,4",
-            "9-7X,Diesel/Turbo,170,6"
-
-    })
-    void test_create_car_with_model_sucess(String model,String enginetype,int enginePower,int numberOfPassangers) {
+    @Test
+    void test_create_car_with_model_sucess() {
 
         VihicleRegistrationNumberGenerator vihicleRegistrationNumberGenerator = new VihicleRegistrationNumberGenerator(List.of("ABC123"));
         Carfactory carfactory = new Carfactory(vihicleRegistrationNumberGenerator,"Saab");
+        carfactory.addModel("900","Gasoline",90,4);
 
-        Car car = carfactory.createNewCar(model,"Red");
+        Car car = carfactory.createNewCar("900","Red");
 
 
 
 
         assertNotNull(car);
 
-        assertEquals(enginetype,car.getEngineType());
+        assertEquals("Gasoline",car.getEngineType());
 
-        assertEquals(enginePower, car.getEnginePower());
+        assertEquals(90, car.getEnginePower());
 
-        assertEquals(numberOfPassangers,car.getNumberOfPassangers());
+        assertEquals(4,car.getNumberOfPassangers());
 
 
     }
