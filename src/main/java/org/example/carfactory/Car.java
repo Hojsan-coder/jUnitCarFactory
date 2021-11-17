@@ -1,5 +1,7 @@
 package org.example.carfactory;
 
+import java.util.List;
+
 public class Car {
 
     String color;
@@ -12,15 +14,17 @@ public class Car {
     int enginePower;
 
     int numberOfPassangers;
+    List<String> equipment;
 
 
-    public Car(String color, String brand, String regNo, String engineType, int enginePower, int numberOfPassangers) {
+    public Car(String color, String brand, String regNo, String engineType, int enginePower, int numberOfPassangers, List<String> equipment) {
         this.color = color;
         this.brand = brand;
         this.regNo = regNo;
         this.engineType = engineType;
         this.enginePower = enginePower;
         this.numberOfPassangers = numberOfPassangers;
+        this.equipment = equipment;
     }
 
     public String getRegNo() {
@@ -69,5 +73,13 @@ public class Car {
 
     public void setNumberOfPassangers(int numberOfPassangers) {
         this.numberOfPassangers = numberOfPassangers;
+    }
+
+    public List<String> getEquipment() {
+        return equipment;
+    }
+
+    public void setEquipment(List<String> equipment) {
+        this.equipment = equipment;
     }
 }

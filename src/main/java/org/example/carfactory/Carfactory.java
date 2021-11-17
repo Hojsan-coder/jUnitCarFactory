@@ -1,6 +1,7 @@
 package org.example.carfactory;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Carfactory {
@@ -16,11 +17,17 @@ public class Carfactory {
 
     }
 
-    public Car createNewCar(String modelAsText, String color) {
+    public Car createNewCar(String modelAsText, String color, List<String> equipment) {
        Model model = models.get(modelAsText);
        if (model == null)
            throw new RuntimeException("Unknown model" + model);
-           return new Car(color, this.brand, vihicleRegistrationNumberGenerator.getNextRegNo(), model.getEnginetype(), model.getEnginePower(), model.getNumberOfPassangers());
+           return new Car(color,
+                   this.brand,
+                   vihicleRegistrationNumberGenerator.getNextRegNo(),
+                   model.getEnginetype(),
+                   model.getEnginePower(),
+                   model.getNumberOfPassangers(),
+                   equipment);
        }
 
 
